@@ -30,8 +30,8 @@ export default createGlobalStyle`
         color: var(--vanilla);
     }
 
-    body, input, button{
-        font-family: 'Inter, sans-serif';
+    body, input, button, label{
+        font-family: 'Inter', sans-serif;
     }
 
     button{

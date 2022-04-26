@@ -3,22 +3,23 @@ import styled, {css} from 'styled-components'
 export const Container = styled.div`
     text-align: left;
     div{
+        margin-bottom: 10px;
+        font-size: 12px;
+    }
         span{
             color: var(--red);
         }
-    }
 `
 
 export const InputContainer = styled.div`
     background: var(--mediumgrey);
     border-radius: 4px;
-    border: 2px solid var(--vanilla);
     color: var(--vanilla);
-    padding: 1rem;
+    padding: 0.9rem;
     width: 100%;
     display: flex;
-    margin-bottom: 10px;
     transition: 0.4s;
+    border: 1px solid var(--mediumgrey);
 
     ${props => props.isErrored && css`
         border-color: var(--red);
@@ -30,15 +31,18 @@ export const InputContainer = styled.div`
     input{
         background: transparent;
         align-items: center;
+        width: 190px;
         flex: 1;
         border: 0;
         color: var(--vanilla);
         &::placeholder{
             color: var(--softgrey);
+            font-size: 16px;
         }
     }
 
     svg{
         margin-right: 16px;
+        margin-bottom: 1px;
     }
 `
