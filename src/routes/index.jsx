@@ -7,12 +7,12 @@ export const Routes = () => {
     return(
         <Switch>
             <Route exact path="/">
-                <Register />
-            </Route>
-            <Route exact path="/login">
                 <Login />
             </Route>
-            <Route>
+            <Route exact path="/register">
+                <Register />
+            </Route>
+            <Route exact path="/home">
                 <Home />
             </Route>
         </Switch>
