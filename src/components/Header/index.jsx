@@ -1,9 +1,10 @@
 import { Container } from "./styles"
+import Logo from '../../assets/Logo.png'
 
 const Header = () => {
     return(
         <Container>
-            <h1>Kenzie Hub</h1>
+            <img src={Logo} alt="logo-kenzie"></img>
             <button>Voltar</button>
         </Container>
     )
