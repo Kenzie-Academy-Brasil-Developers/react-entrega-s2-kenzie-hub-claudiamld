@@ -11,13 +11,18 @@ export const Routes = () => {
     return(
         <Switch>
             <Route exact path="/">
-                <Login authenticated={authenticated} setAuthenticated={setAuthenticated} />
+                <Login 
+                    authenticated={authenticated} 
+                    setAuthenticated={setAuthenticated} 
+                />
             </Route>
             <Route path="/register">
-                <Register />
+                <Register 
+                    authenticated={authenticated} 
+                />
             </Route>
             <Route path="/home">
-                <Home />
+                <Home authenticated={authenticated} />
             </Route>
         </Switch>
     )

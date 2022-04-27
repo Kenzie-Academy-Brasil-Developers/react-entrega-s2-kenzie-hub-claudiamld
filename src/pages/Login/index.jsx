@@ -17,6 +17,10 @@ const Login = ({setAuthenticated, authenticated}) => {
 
     const history = useHistory()
 
+    const handleNavigation = (path) => {
+        return history.push(path)
+    }
+
     const schema = yup.object().shape({
         email: yup.string().email("Email inválido!").required("Campo obrigatório!"),
         password: yup.string().required("Campo obrigatório!")
@@ -73,7 +77,7 @@ const Login = ({setAuthenticated, authenticated}) => {
                 />
                 <Button type="submit" color="var(--white)" backgroundColor="var(--pink)">Entrar</Button>
                 <p>Ainda não possui uma conta?</p>
-                <Button onClick={() => history.push('/register')} color="var(--vanilla)" backgroundColor="var(--softgrey)">Cadastre-se</Button>
+                <Button onClick={() => handleNavigation("/register")} color="var(--vanilla)" backgroundColor="var(--softgrey)">Cadastre-se</Button>
             </form>
         </Container>
     )

@@ -2,9 +2,10 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
     height: 100vh;
+    width: 100vw;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
 
     img{
@@ -14,11 +15,12 @@ export const Container = styled.div`
     form{
         background-color: var(--darkgrey);
         height: 70vh;
-        width: 90vw;
+        width: 300px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        border-radius: 4px;
 
         h1{
             font-size: 18px;

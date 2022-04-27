@@ -2,6 +2,7 @@ import styled, {css} from 'styled-components'
 
 export const Container = styled.div`
     text-align: left;
+    width: 90%;
     div{
         margin-bottom: 10px;
         font-size: 12px;
@@ -18,7 +19,7 @@ export const InputContainer = styled.div`
     padding: 0.9rem;
     width: 100%;
     display: flex;
-    transition: 0.4s;
+    transition: 0.5s;
     border: 1px solid var(--mediumgrey);
 
     ${props => props.isErrored && css`

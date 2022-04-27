@@ -35,4 +35,10 @@ export const Container = styled.div`
             margin: 10px 0px;
         }
     }
+
+    @media screen and (min-width: 768px){
+        form{
+            width: 400px;
+        }
+    }
 `
