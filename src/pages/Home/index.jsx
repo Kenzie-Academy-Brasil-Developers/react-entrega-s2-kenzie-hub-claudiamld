@@ -1,37 +1,22 @@
-import { useState } from "react"
-import { useForm } from "react-hook-form"
-import { Redirect } from "react-router-dom"
-import Header from "../../components/Header"
-import { Container, Content, InfoUserContainer, Main, SkillsContainer } from "./styles"
+import Button from "../../components/Button"
+import {Container} from './styles'
+import { useHistory } from "react-router-dom"
 
-const Home = ({authenticated}) => {
+const Home = () => {
 
-    const [token] = useState(JSON.parse(localStorage.getItem("@kenzieHub:token")) || "")
-    const [user] = useState(JSON.parse(localStorage.getItem("@kenzieHub:user")))
-    const [skills, setSkills] = useState([])
+    const history = useHistory()
 
-    const {register, handleSubmit} = useForm()
-
-    if(!authenticated){
-        return <Redirect to="/" />
+    const handleRedirect = (path) => {
+        return history.push(path)
     }
 
     return(
         <Container>
-            <Header />
-            <InfoUserContainer>
-                <h1>Olá, {user.name}!</h1>
-                <h4>{user.course_module}</h4>
-            </InfoUserContainer>
-            <Content>
-                <div>
-                    <h2>Tecnologias</h2>
-                    <button>+</button>
-                </div>
-                <SkillsContainer>
-
-                </SkillsContainer>
-            </Content>
+            <h1>KenzieHub</h1>
+            <div className="btnPlace">
+                <Button backgroundColor="var(--pink)" color="var(--white)" onClick={() => handleRedirect("/login")}>Entrar</Button>
+                <Button onClick={() => handleRedirect("/register")}>Cadastre-se</Button>
+            </div>
         </Container>
     )
 }

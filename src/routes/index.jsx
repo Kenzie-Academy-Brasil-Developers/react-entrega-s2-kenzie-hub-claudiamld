@@ -1,16 +1,29 @@
 import {Switch, Route} from 'react-router-dom'
 import Register from '../pages/Register'
 import Login from '../pages/Login'
+import { useEffect, useState } from 'react'
+import Dashboard from '../pages/Dashboard'
 import Home from '../pages/Home'
-import { useState } from 'react'
 
 export const Routes = () => {
 
     const [authenticated, setAuthenticated] = useState(false)
 
+    useEffect(() => {
+        const token = JSON.parse(localStorage.getItem("kenzieHub:token"))
+
+        console.log('aqui');
+        if(token){
+            return setAuthenticated(true)
+        }
+    }, [authenticated])
+
     return(
         <Switch>
             <Route exact path="/">
+                <Home />
+            </Route>
+            <Route exact path="/login">
                 <Login 
                     authenticated={authenticated} 
                     setAuthenticated={setAuthenticated} 
@@ -21,8 +34,8 @@ export const Routes = () => {
                     authenticated={authenticated} 
                 />
             </Route>
-            <Route path="/home">
-                <Home authenticated={authenticated} />
+            <Route path="/dashboard">
+                <Dashboard authenticated={authenticated} setAuthenticated={setAuthenticated} />
             </Route>
         </Switch>
     )

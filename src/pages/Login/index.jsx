@@ -45,13 +45,13 @@ const Login = ({setAuthenticated, authenticated}) => {
 
             setAuthenticated(true)
 
-            history.push('/home')
+            history.push('/dashboard')
         })
         .catch((err) => toast.error("Email ou senha inválidos!"))
     };
 
     if(authenticated){
-        return <Redirect to="/home" />
+        return <Redirect to="/dashboard" />
     }
 
     return(

@@ -2,35 +2,31 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
     width: 100vw;
-`
-export const InfoUserContainer = styled.div`
-    width: 100vw;
+    height: 100vh;
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    border: 1px solid var(--mediumgrey);
-    height: 80px;
 
     h1{
-        font-size: 18px;
+        font-size: 38px;
+        color: var(--pink);
     }
 
-    h4{
-        font-size: 12px;
-        font-weight: normal;
-        color: var(--softgrey);
-    }
-`
-
-export const Content = styled.div`
-    width: 100vw;
-
-    >div{
+    .btnPlace{
         display: flex;
-        justify-content: space-evenly;
+        flex-direction: row;
+        width: 80vw;
+        margin-top: 30px;
     }
-`
 
-export const SkillsContainer = styled.div`
-    background-color: var(--mediumgrey);
+    @media screen and (min-width: 768px){
+        .btnPlace{
+            width: 40vw;
+        }
+
+        button + button{
+            margin-left: 20px
+        }
+    }
 `

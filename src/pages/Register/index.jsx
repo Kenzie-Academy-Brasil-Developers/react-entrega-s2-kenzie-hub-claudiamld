@@ -35,13 +35,13 @@ const Register = ({authenticated}) => {
         .post("/users", user)
         .then((_) => {
             toast.success("Conta criada com sucesso!")
-            return history.push("/home")
+            return history.push("/dashboard")
         })
         .catch((err) => console.log(err))
     }
 
     if(authenticated){
-        return <Redirect to="/home" />
+        return <Redirect to="/dashboard" />
     }
 
     return(
@@ -90,11 +90,12 @@ const Register = ({authenticated}) => {
                     placeholder='Digite sua senha'
                     error={errors.password?.message}
                 />
+                <label>Selecionar módulo</label>
                 <select {...register("course_module")}>
-                    <option value="Primeiro módulo (Introdução ao Frontend)">Valor 1</option>
-                    <option value="Segundo módulo (Frontend Avançado)">Valor 2</option>
-                    <option value="Terceiro módulo (Introdução ao Backend)">Valor 3</option>
-                    <option value="Quarto módulo (Backend Avançado)">Valor 4</option>
+                    <option value="Primeiro módulo (Introdução ao Frontend)">Primeiro módulo (Introdução ao Frontend)</option>
+                    <option value="Segundo módulo (Frontend Avançado)">Segundo módulo (Frontend Avançado)</option>
+                    <option value="Terceiro módulo (Introdução ao Backend)">Terceiro módulo (Introdução ao Backend)</option>
+                    <option value="Quarto módulo (Backend Avançado)">Quarto módulo (Backend Avançado)</option>
                 </select>
                 <Button type="submit" color="var(--vanilla)" backgroundColor="var(--violet)">Cadastrar</Button>
             </form>
