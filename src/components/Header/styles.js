@@ -1,12 +1,10 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-    max-width: 100vw;
+    width: 300px;
     height: 4.5rem;
     display: flex;
     justify-content: space-between;
-    margin-left: 20px;
-    margin-right: 20px;
     align-items: center;
 
     button{
@@ -20,7 +18,6 @@ export const Container = styled.div`
     }
 
     @media screen and (min-width: 768px){
-        justify-content: space-around;
-        width: 95vw;
+        width: 350px;
     }
 `
