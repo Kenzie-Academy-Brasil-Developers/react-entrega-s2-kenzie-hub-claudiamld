@@ -33,9 +33,9 @@ const Register = ({authenticated}) => {
 
         api
         .post("/users", user)
-        .then((_) => {
+        .then(() => {
             toast.success("Conta criada com sucesso!")
-            return history.push("/dashboard")
+            return history.push("/login")
         })
         .catch((err) => console.log(err))
     }
