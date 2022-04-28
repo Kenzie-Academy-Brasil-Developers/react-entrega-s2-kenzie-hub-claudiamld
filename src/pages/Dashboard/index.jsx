@@ -48,11 +48,13 @@ const Dashboard = ({authenticated, setAuthenticated}) => {
     } 
 
     useEffect(() => {
-        loadSkills()
+        if(authenticated){
+            loadSkills()
+        } 
     })
 
     if(!authenticated){
-        return history.push("/")
+        return history.push("/login")
     } 
 
     return(
