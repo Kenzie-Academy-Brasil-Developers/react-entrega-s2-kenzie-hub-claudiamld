@@ -10,6 +10,10 @@ export const Container = styled.div`
     background-color: var(--black);
     border-radius: 4px;
 
+    :hover{
+        background-color: var(--mediumgrey);
+    }
+
     h3{
         font-size: 14px;
     }
@@ -29,8 +33,4 @@ export const Container = styled.div`
         align-items: center;
         border-radius: 4px;
     }
-`
-
-export const Content = styled.div`
-    /* margin: 20px; */
 `

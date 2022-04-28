@@ -1,13 +1,12 @@
+import { Container, Content, InfoUserContainer, SkillsContainer } from "./styles"
 import { useEffect, useState } from "react"
 import { useForm } from "react-hook-form"
 import Modal from "../../components/Modal"
 import Card from '../../components/Card'
-import Header from "../../components/Header"
-import { Container, Content, InfoUserContainer, SkillsContainer } from "./styles"
 import api from "../../services/api"
 import {toast, ToastContainer}  from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
-import { useHistory, Redirect } from "react-router-dom"
+import { useHistory } from "react-router-dom"
 import Logo from '../../assets/Logo.png'
 
 const Dashboard = ({authenticated, setAuthenticated}) => {
@@ -20,16 +19,10 @@ const Dashboard = ({authenticated, setAuthenticated}) => {
 
     const {register, handleSubmit} = useForm()
 
-    // const renderSkills = () => {
-    //     return(
-    //         )  
-    // }
-
     const loadSkills = (data) => {
         api
         .get(`users/${user.id}`)
         .then(response => setSkills(response.data.techs))
-        // .then(() => renderSkills())
     }
 
     const history = useHistory();
@@ -56,12 +49,7 @@ const Dashboard = ({authenticated, setAuthenticated}) => {
 
     useEffect(() => {
         loadSkills()
-    }, [])
-
-    useEffect(() => {
-        console.log(skills);
-        // renderSkills()
-    }, [skills])
+    })
 
     if(!authenticated){
         return history.push("/")
@@ -69,8 +57,7 @@ const Dashboard = ({authenticated, setAuthenticated}) => {
 
     return(
         <Container>
-            {/* <Header /> */}
-            
+            <img src={Logo} alt="logo-kenziehub" />
             <InfoUserContainer>
                 <h1>Olá, {user.name}!</h1>
                 <h4>{user.course_module}</h4>
@@ -89,23 +76,20 @@ const Dashboard = ({authenticated, setAuthenticated}) => {
                     />)
                 }
                 <SkillsContainer>
-                {/* {renderSkills()} */}
-                {/* {console.log(skills)} */}
-               { skills.map((skill, index) => (
-                <Card 
-                    key={index} 
-                    id={skill.id} 
-                    techName={skill.title} 
-                    level={skill.status}
-                    deleteSkill={() => deleteSkill(skill.id)}
-                />))}
+                    {skills.map((skill, index) => (
+                        <Card 
+                            key={index} 
+                            id={skill.id} 
+                            techName={skill.title} 
+                            level={skill.status}
+                            deleteSkill={() => deleteSkill(skill.id)}
+                        />
+                    ))}
                 </SkillsContainer>
             </Content>
-            <div className="header">
-                <img src={Logo} alt="logo-kenziehub" />
+            <div className="btnPlace">
                 <button onClick={() => handleRedirect("/")}>Sair</button>
             </div>
-            
         </Container>
     )
 }

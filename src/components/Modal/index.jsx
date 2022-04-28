@@ -1,4 +1,4 @@
-import { Container } from "./styles"
+import { Container, Content } from "./styles"
 import Input from '../Input'
 import Button from "../Button"
 import { useForm } from "react-hook-form"
@@ -28,25 +28,32 @@ const Modal = ({token, skills, setSkills, setShouldOpenModal}) => {
     return(
         <Container>
             {/* <ToastContainer /> */}
-            <div>
-                <h1>Cadastrar tecnologia</h1>
-                <button onClick={() => setShouldOpenModal(false)}>X</button>
-            </div>
-            <form onSubmit={handleSubmit(onSubmitFunction)}>
-                
-                <Input 
-                    register={register}
-                    label="Nome"
-                    name="title" 
-                    placeholder="Nova tecnologia" 
-                />
-                <select {...register("status")} >
-                    <option value="Iniciante">Iniciante</option>
-                    <option value="Intermediário">Intermediário</option>
-                    <option value="Avançado">Avançado</option>
-                </select>
-                <Button type="submit" backgroundColor="var(--pink)" color="var(--white)">Adicionar</Button>
-            </form>
+            <Content>
+                <div className="header-modal">
+                    <h1>Cadastrar tecnologia</h1>
+                    <button onClick={() => setShouldOpenModal(false)}>X</button>
+                </div>
+                <form onSubmit={handleSubmit(onSubmitFunction)}>
+                    
+                    <Input 
+                        register={register}
+                        label="Nome"
+                        name="title" 
+                        placeholder="Nova tecnologia" 
+                    />
+                    <label>Selecionar status</label>
+                    <select {...register("status")} >
+                        <option value="Iniciante">Iniciante</option>
+                        <option value="Intermediário">Intermediário</option>
+                        <option value="Avançado">Avançado</option>
+                    </select>
+                    <Button 
+                        type="submit" 
+                        backgroundColor="var(--pink)" 
+                        color="var(--white)"
+                    >Cadastrar Tecnologia</Button>
+                </form>
+            </Content>
         </Container>
     )
 }

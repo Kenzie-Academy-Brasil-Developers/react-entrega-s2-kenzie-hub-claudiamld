@@ -2,12 +2,37 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
     max-width: 100vw;
-    
+
+    img{
+        width: 150px;
+        padding: 20px;
+    }
+
+    .btnPlace{
+        display: flex;
+        justify-content: flex-end;
+
+        button{
+            width: 55px;
+            height: 32px;
+            border-radius: 4px;
+            border: none;
+            background-color: var(--darkgrey);
+            color: var(--vanilla);
+        }
+    }
+
     @media screen and (min-width: 768px){
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+
+        button{
+            :hover{
+                background-color: var(--mediumgrey);
+            }
+        }
     }
 `
 
@@ -62,6 +87,10 @@ export const Content = styled.div`
             border-radius: 4px;
             width: 25px;
             height: 25px;
+
+            :hover{
+                background-color: var(--softgrey);
+            }
         }
     }
     >div{
@@ -85,6 +114,7 @@ export const SkillsContainer = styled.div`
     width: 100%;
     border-radius: 4px;
     margin-left: 15px;
+    margin-right: 15px;
     margin-bottom: 20px;
     padding: 10px 0px;
     background-color: var(--darkgrey);
