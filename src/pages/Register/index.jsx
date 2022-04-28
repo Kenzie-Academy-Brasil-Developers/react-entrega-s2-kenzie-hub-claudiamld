@@ -37,7 +37,7 @@ const Register = ({authenticated}) => {
             toast.success("Conta criada com sucesso!")
             return history.push("/login")
         })
-        .catch((err) => console.log(err))
+        .catch(toast.error("Algo deu errado! Tente novamente!"))
     }
 
     if(authenticated){
