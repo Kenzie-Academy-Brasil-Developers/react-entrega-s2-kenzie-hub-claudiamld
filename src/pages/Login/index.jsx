@@ -23,7 +23,7 @@ const Login = ({setAuthenticated, authenticated}) => {
 
     const schema = yup.object().shape({
         email: yup.string().email("Email inválido!").required("Campo obrigatório!"),
-        password: yup.string().required("Campo obrigatório!")
+        password: yup.string().min(6, "A senha precisa ter no mínimo 6 caracteres").required("Campo obrigatório!")
     })
 
     const {
