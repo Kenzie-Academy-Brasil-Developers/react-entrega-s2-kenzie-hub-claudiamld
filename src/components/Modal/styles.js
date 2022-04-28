@@ -5,7 +5,7 @@ export const Container = styled.div`
     height: 100vh;
     position: fixed;
     top: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.7);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,12 +31,12 @@ export const Content = styled.div`
 
         h1{
             font-size: 14px;
-            margin-left: 10px;
+            margin-left: 15px;
         }
 
         button{
             background-color: var(--mediumgrey);
-            margin-right: 10px;
+            margin-right: 15px;
             border: none;
             color: var(--softgrey);
             font-weight: bold;

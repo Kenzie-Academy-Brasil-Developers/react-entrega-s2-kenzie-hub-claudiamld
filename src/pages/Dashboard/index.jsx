@@ -56,41 +56,44 @@ const Dashboard = ({authenticated, setAuthenticated}) => {
     } 
 
     return(
-        <Container>
-            <img src={Logo} alt="logo-kenziehub" />
-            <InfoUserContainer>
-                <h1>Olá, {user.name}!</h1>
-                <h4>{user.course_module}</h4>
-            </InfoUserContainer>
-            <Content>
-                <div className="addTechs">
-                    <h2>Tecnologias</h2>
-                    <button onClick={() => setShouldOpenModal(true)}>+</button>
+        <div>
+            {shouldOpenModal && 
+                (<Modal 
+                    token={token} 
+                    skills={skills} 
+                    setSkills={setSkills} 
+                    setShouldOpenModal={setShouldOpenModal} 
+                />)
+            }
+            <Container>
+                <img src={Logo} alt="logo-kenziehub" />
+                <InfoUserContainer>
+                    <h1>Olá, {user.name}!</h1>
+                    <h4>{user.course_module}</h4>
+                </InfoUserContainer>
+                <Content>
+                    <div className="addTechs">
+                        <h2>Tecnologias</h2>
+                        <button onClick={() => setShouldOpenModal(true)}>+</button>
+                    </div>
+                    <SkillsContainer>
+                        {skills.map((skill, index) => (
+                            <Card 
+                                key={index} 
+                                id={skill.id} 
+                                techName={skill.title} 
+                                level={skill.status}
+                                deleteSkill={() => deleteSkill(skill.id)}
+                            />
+                        ))}
+                    </SkillsContainer>
+                </Content>
+                <div className="btnPlace">
+                    <button onClick={() => handleRedirect("/")}>Sair</button>
                 </div>
-                {shouldOpenModal && 
-                    (<Modal 
-                        token={token} 
-                        skills={skills} 
-                        setSkills={setSkills} 
-                        setShouldOpenModal={setShouldOpenModal} 
-                    />)
-                }
-                <SkillsContainer>
-                    {skills.map((skill, index) => (
-                        <Card 
-                            key={index} 
-                            id={skill.id} 
-                            techName={skill.title} 
-                            level={skill.status}
-                            deleteSkill={() => deleteSkill(skill.id)}
-                        />
-                    ))}
-                </SkillsContainer>
-            </Content>
-            <div className="btnPlace">
-                <button onClick={() => handleRedirect("/")}>Sair</button>
-            </div>
-        </Container>
+            </Container>
+        </div>
+        
     )
 }
 export default Dashboard
